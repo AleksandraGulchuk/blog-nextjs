@@ -110,6 +110,9 @@ export default function Page() {
                     <textarea id="content" name="content" rows={4} value={postContent} onChange={handleChange}
                               className="w-full border-2 border-purple-100 p-2 rounded-md focus:border-purple-200 focus:outline-none"></textarea>
                     {generating && <p className='text-purple-700 my-1'>Generating content...</p>}
+
+                </div>
+                <div>
                     <button onClick={generateContent} type="button"
                             className="bg-blue-400 text-white px-4 py-2 rounded-md bg-purple-600  hover:bg-purple-700">Generate
                         Content

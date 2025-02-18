@@ -1,4 +1,4 @@
-import { PostsSkeleton } from "@/app/ui/components/skeletons";
+import {PostsSkeleton} from "@/app/ui/components/skeletons";
 
 // export default function Loading() {
 //   return (
@@ -9,5 +9,5 @@ import { PostsSkeleton } from "@/app/ui/components/skeletons";
 // }
 
 export default function Loading() {
-  return <PostsSkeleton />
+    return <PostsSkeleton/>
 }

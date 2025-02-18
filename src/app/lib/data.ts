@@ -1,5 +1,5 @@
 import {createClient} from "@vercel/postgres";
-import { unstable_noStore as noStore } from 'next/cache';
+import {unstable_noStore as noStore} from 'next/cache';
 
 export async function connectToDB() {
     const client = createClient();
@@ -23,7 +23,9 @@ export async function getPosts() {
         if (!client) {
             throw new Error('Database client is undefined');
         }
-        const data = await client.sql`SELECT * FROM posts;`;
+        const data = await client.sql`SELECT *
+                                                                FROM posts
+                                                                ORDER BY date DESC LIMIT 10;`;
         // console.log(data.rows);
         return data.rows;
     } catch (err) {

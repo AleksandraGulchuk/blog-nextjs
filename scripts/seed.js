@@ -1,5 +1,5 @@
 const { db } = require("@vercel/postgres");
-const { posts } = require("../src/app/lib/placeholder-data.js");
+// const { posts } = require("../src/app/lib/placeholder-data.js");
 
 async function seedPosts(client) {
   try {
@@ -17,21 +17,21 @@ async function seedPosts(client) {
 
     console.log(`Created "posts" table`);
 
-    // Insert data into the "users" table
-    const insertedPosts = await Promise.all(
-      posts.map(async (post) => {
-        return client.sql`
-        INSERT INTO posts (id, title, content, date, author)
-        VALUES (${post.id}, ${post.title}, ${post.content}, ${post.date}, ${post.user})
-        ON CONFLICT (id) DO NOTHING;
-      `;
-      })
-    );
-    console.log(`Seeded ${insertedPosts.length} posts articles`);
+    // // Insert data into the "users" table
+    // const insertedPosts = await Promise.all(
+    //   posts.map(async (post) => {
+    //     return client.sql`
+    //     INSERT INTO posts (id, title, content, date, author)
+    //     VALUES (${post.id}, ${post.title}, ${post.content}, ${post.date}, ${post.user})
+    //     ON CONFLICT (id) DO NOTHING;
+    //   `;
+    //   })
+    // );
+    // console.log(`Seeded ${insertedPosts.length} posts articles`);
 
     return {
       createTable,
-      posts: insertedPosts,
+      // posts: insertedPosts,
     };
   } catch (error) {
     console.error("Error seeding posts:", error);
