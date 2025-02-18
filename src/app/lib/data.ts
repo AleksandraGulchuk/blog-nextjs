@@ -18,7 +18,7 @@ export async function connectToDB() {
 export async function getPosts() {
     try {
         noStore();
-        await new Promise(resolve => setTimeout(resolve, 3000));
+        // await new Promise(resolve => setTimeout(resolve, 3000));
         const client = await connectToDB();
         if (!client) {
             throw new Error('Database client is undefined');
