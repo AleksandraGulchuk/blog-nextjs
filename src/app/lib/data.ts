@@ -1,4 +1,5 @@
 import {createClient} from "@vercel/postgres";
+import { unstable_noStore as noStore } from 'next/cache';
 
 export async function connectToDB() {
     const client = createClient();
@@ -16,6 +17,7 @@ export async function connectToDB() {
 
 export async function getPosts() {
     try {
+        noStore();
         const client = await connectToDB();
         if (!client) {
             throw new Error('Database client is undefined');
