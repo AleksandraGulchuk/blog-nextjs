@@ -20,8 +20,7 @@ export async function getPosts() {
         if (!client) {
             throw new Error('Database client is undefined');
         }
-        const data = await client.sql`SELECT *
-                                      FROM posts LIMIT 5;`;
+        const data = await client.sql`SELECT * FROM posts;`;
         // console.log(data.rows);
         return data.rows;
     } catch (err) {
